@@ -1,10 +1,9 @@
 package com.payment_service.dto;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.Data;
-import lombok.NonNull;
-
 import java.math.BigDecimal;
 
 @Data
@@ -15,4 +14,8 @@ public class PaymentRequest {
 
     @NotBlank(message = "Payment type is required")
     private String paymentType;
+
+    @NotBlank(message = "Email is required")
+    @Email(message = "Enter a valid email address")
+    private String email;
 }
