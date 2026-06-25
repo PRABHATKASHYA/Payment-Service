@@ -9,18 +9,19 @@ pipeline {
         stage('Checkout') {
             steps {
                 checkout scm
+                sh 'chmod +x mvnw'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                sh './mvnw clean compile'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                sh './mvnw test'
             }
             post {
                 always {
@@ -31,7 +32,7 @@ pipeline {
 
         stage('Package') {
             steps {
-                sh 'mvn package -DskipTests'
+                sh './mvnw package -DskipTests'
             }
         }
     }
