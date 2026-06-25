@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven'
-        jdk 'JDK 17'
-    }
-
     environment {
         MAVEN_OPTS = '-Dmaven.repo.local=$WORKSPACE/.m2/repository'
     }
