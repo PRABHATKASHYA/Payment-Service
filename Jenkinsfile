@@ -41,11 +41,10 @@ pipeline {
         success {
             echo 'Build and test completed successfully!'
             archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+            cleanWs()
         }
         failure {
             echo 'Build or test failed!'
-        }
-        always {
             cleanWs()
         }
     }
